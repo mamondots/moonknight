@@ -1,0 +1,23 @@
+.nav-link li a{
+    transition:0.5s;
+    position: relative;
+}
+.nav-link li a:hover{
+    color: #E85B40;
+}
+.nav-link li a::before{
+    position: absolute;
+    content:"";
+    left:40%;
+    bottom:0%;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background-color:#E85B40;
+    transition:0.5s;
+    opacity:0;
+}
+.nav-link li a:hover::before{
+    bottom:88%;
+    opacity:1;
+}
