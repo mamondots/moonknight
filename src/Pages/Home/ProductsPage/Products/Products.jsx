@@ -46,7 +46,7 @@ const Products = () => {
 
             <div className="mt-12">
                 <div className={toggle === 1 ? "content active-content" : "content"}>
-                    <div className="grid lg:grid-cols-4 gap-6">
+                    <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 gap-6">
                         {
                            newProducts.map(product =><ProductCard key={product.id} product={product}></ProductCard>) 
                         }
@@ -54,7 +54,7 @@ const Products = () => {
                 </div>
 
                 <div className={toggle === 2 ? "content active-content" : "content"}>
-                <div className="grid lg:grid-cols-4 gap-6">
+                <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 gap-6">
                         {
                            bestProducts.map(product =><ProductCard key={product.id} product={product}></ProductCard>) 
                         }
@@ -62,7 +62,7 @@ const Products = () => {
                 </div>
 
                 <div className={toggle === 3 ? "content active-content" : "content"}>
-                <div className="grid lg:grid-cols-4 gap-6">
+                <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 gap-6">
                         {
                            featuredProducts.map(product =><ProductCard key={product.id} product={product}></ProductCard>) 
                         }

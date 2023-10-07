@@ -1,6 +1,6 @@
 [
     {
-      "id": "1",
+      "id": "6",
       "title": "Diamond Halo Stud Amet",
       "description": "This is the description for Product 1.",
       "category": "new",
@@ -10,13 +10,13 @@
       "trending": "top",
       "available": "IN STOCK",
       "sku": "PROD1-12345",
-      "image": "https://i.ibb.co/xXrRzPY/earring3.webp"
+      "image": "https://i.ibb.co/DGSCMGr/earring6.webp"
     },
     {
       "id": "2",
       "title": "Diamond Halo Stud Dolor",
       "description": "This is the description for Product 2.",
-      "category": "new",
+      "category": "best",
       "product_category": "nakles",
       "price": 29.99,
       "rating": 3.8,
@@ -29,7 +29,7 @@
       "id": "3",
       "title": "Diamond Halo Stud Monte",
       "description": "This is the description for Product 3.",
-      "category": "new",
+      "category": "best",
       "product_category": "ring",
       "price": 99.99,
       "rating": 4.2,
@@ -42,7 +42,7 @@
       "id": "4",
       "title": "Diamond Halo Stud Massa",
       "description": "This is the description for Product 4.",
-      "category": "new",
+      "category": "best",
       "product_category": "nakles",
       "price": 19.99,
       "rating": 4.0,
@@ -75,7 +75,7 @@
       "trending": true,
       "available": "IN STOCK",
       "sku": "PROD6-23456",
-      "image": "https://i.ibb.co/DGSCMGr/earring6.webp"
+      "image": "https://i.ibb.co/RYXLxTs/earring2.webp"
     },
     {
       "id": "7",
@@ -172,7 +172,7 @@
       "id": "14",
       "title": "Diamond Halo Stud Natos",
       "description": "This is the description for Product 14.",
-      "category": "best",
+      "category": "new",
       "product_category": "banglas",
       "price": 14.99,
       "rating": 4.2,
@@ -185,7 +185,7 @@
       "id": "15",
       "title": "Diamond Halo Stud Aenean",
       "description": "This is the description for Product 15.",
-      "category": "best",
+      "category": "new",
       "product_category": "nakles",
       "price": 49.99,
       "rating": 4.6,
@@ -198,7 +198,7 @@
       "id": "16",
       "title": "Diamond Halo Stud Dolor",
       "description": "This is the description for Product 16.",
-      "category": "best",
+      "category": "new",
       "product_category": "nakles",
       "price": 399.99,
       "rating": 4.8,

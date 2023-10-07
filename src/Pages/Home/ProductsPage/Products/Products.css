@@ -5,3 +5,35 @@
 .active-content{
     display:block;
 }
+.quick-text{
+    position: relative;
+    opacity:0;
+    transform:translateX(-20px);
+    transition:0.5s;
+}
+.view-card:hover .quick-text{
+    opacity:1;
+    transform:translateX(0px); 
+}
+.icon-view{
+    opacity:0;
+    transform:translateX(20px);
+    transition:0.5s;
+}
+.card:hover .icon-view{
+    opacity:1;
+    transform:translateX(0px); 
+}
+.card-btn{
+    transition:0.5s;
+}
+.card:hover .card-btn{
+    background-color: #262626;
+    color:#fff;
+}
+.card-price{
+    transition:0.5s;
+}
+.card:hover .card-price{
+    color:#D54800;
+}
