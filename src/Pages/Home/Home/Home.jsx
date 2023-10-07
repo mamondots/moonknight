@@ -1,4 +1,5 @@
 import Banner from "../Banner/Banner";
+import Blogs from "../BlogPages/Blogs/Blogs";
 import DeliverPage from "../DeliverPage/DeliverPage";
 import ManCate from "../ManCate/ManCate";
 import Products from "../ProductsPage/Products/Products";
@@ -15,6 +16,7 @@ const Home = () => {
             <ManCate></ManCate>
             <Treanding></Treanding>
             <DeliverPage></DeliverPage>
+            <Blogs></Blogs>
         </div>
     );
 };
