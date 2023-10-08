@@ -14,12 +14,12 @@ const Navbar = () => {
                 <div className='hidden lg:block'>
                 <div className='flex items-center space-x-12'>
                     <div className=''>
-                        <ul className='flex items-center space-x-6 nav-link text-lg'>
+                        <ul className='flex items-center space-x-6 nav-link text-base'>
                             <li><Link to='/'><a href="">Home</a></Link></li>
                             <li><Link to='/allproducts'><a href="">All jewelry</a></Link></li>
+                            <li><a href="">My Jewelry</a></li>
+                            <li><Link to='/addproducts'><a href="">Add jewelry</a></Link></li>
                             <li><Link to='/allblogs'><a href="">Blogs</a></Link></li>
-                            <li><a href="">About us</a></li>
-                            <li><a href="">Contact us</a></li>
                         </ul>
                     </div>
 

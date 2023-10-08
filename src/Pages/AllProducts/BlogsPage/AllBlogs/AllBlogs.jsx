@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BiSearch } from 'react-icons/bi';
 
 const AllBlogs = () => {
     const [blogs,setBlogs] = useState([])
@@ -11,6 +12,10 @@ const AllBlogs = () => {
     },[])
     return (
         <div className='lg:px-20 md:px-12 px-12 py-6'>
+              <div className='relative'>
+                <input className='py-2 w-full px-4 border outline-none' type="text" placeholder='Find Your Blogs' />
+                <button className='top-0 right-0 absolute py-2 px-12 bg-[#D54800] hover:bg-[red] duration-300 text-white text-xl h-full'><BiSearch></BiSearch></button>
+            </div>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-6 py-4 mt-4'>
                  {
                     blogs.map(blog => <div key={blog.id}>
