@@ -1,8 +1,6 @@
+import React, { useEffect, useState } from 'react';
 
-import { useEffect } from 'react';
-import { useState } from 'react';
-
-const Blogs = () => {
+const AllBlogs = () => {
     const [blogs,setBlogs] = useState([])
     useEffect(() =>{
         fetch('blogs.json')
@@ -12,15 +10,10 @@ const Blogs = () => {
         })
     },[])
     return (
-        <div className='lg:px-20 md:px-12 px-12 py-12'>
-            <div className='text-center'>
-                 <h2 className='text-2xl font-semibold py-1'>Latest Blogs</h2>
-                 <p className='text-[#636262]'>There are latest blog posts</p>
-            </div>
-
+        <div className='lg:px-20 md:px-12 px-12 py-6'>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-6 py-4 mt-4'>
                  {
-                    blogs.slice(0,3).map(blog => <div key={blog.id}>
+                    blogs.map(blog => <div key={blog.id}>
 
                         <div className='group cursor-pointer'>
                             <div className='overflow-hidden'>
@@ -36,9 +29,8 @@ const Blogs = () => {
                     </div>)
                  }
             </div>
-
         </div>
     );
 };
 
-export default Blogs;
+export default AllBlogs;

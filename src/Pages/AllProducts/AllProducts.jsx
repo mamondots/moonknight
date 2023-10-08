@@ -3,6 +3,8 @@ import sideImg from '../../assets/img/sidebar.webp'
 import { useEffect, useState } from 'react';
 import ProductCard from '../Home/ProductsPage/ProductCard/ProductCard';
 import './AllProducts.css'
+import { CgMenuGridO } from 'react-icons/cg';
+import { TfiMenuAlt } from 'react-icons/tfi';
 const AllProducts = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
@@ -84,18 +86,18 @@ const AllProducts = () => {
                 <button className='top-0 right-0 absolute py-2 px-12 bg-[#D54800] hover:bg-[red] duration-300 text-white text-xl h-full'><BiSearch></BiSearch></button>
             </div>
 
-            <div className='flex gap-8 py-12'>
+            <div className='lg:flex gap-8 py-12'>
 
-                <div className='w-1/4  space-y-2'>
+                <div className='lg:w-1/4  space-y-2'>
                     <div className='border px-4 py-4 bg-[#F5F5F5]'>
                         <h2 className='text-xl border-b py-2'>Categories</h2>
                         <ul className='py-4 space-y-2 text-[#3c3b3ba0]'>
-                            <li><a href="">Fashionware</a></li>
-                            <li><a href="">Kitchenware</a></li>
-                            <li><a href="">Electronics</a></li>
-                            <li><a href="">Accessories</a></li>
-                            <li><a href="">Shoe</a></li>
-                            <li><a href="">Toys</a></li>
+                            <li><a href="">Earring</a></li>
+                            <li><a href="">Nakles</a></li>
+                            <li><a href="">Ring</a></li>
+                            <li><a href="">Banglas</a></li>
+                            <li><a href="">Bags</a></li>
+                            <li><a href="">Watch</a></li>
                         </ul>
                     </div>
 
@@ -142,7 +144,24 @@ const AllProducts = () => {
 
                 </div>
 
-                <div className='w-3/4'>
+                <div className='lg:w-3/4'>
+                    <div className='flex items-center justify-between'>
+                    <div className='flex items-center text-2xl space-x-2 pb-4 cursor-pointer'>
+                        <p><CgMenuGridO></CgMenuGridO></p>
+                        <p><TfiMenuAlt></TfiMenuAlt></p>
+                    </div>
+
+                    <div className='lg:py-2 py-4'>
+                         <select className='border py-2 px-2 outline-none border-[#000000] rounded'>
+                            <option>Choose</option>
+                            <option>Name:(A-Z)</option>
+                            <option>Name:(Z-A)</option>
+                            <option>Price(Low - High)</option>
+                            <option>Price(High - Low)</option>
+                         </select>
+                    </div>
+
+                    </div>
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
                         {
                             currentProducts.map(product => <ProductCard key={product.id} product={product}></ProductCard>)
