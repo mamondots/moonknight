@@ -1,6 +1,7 @@
 import { BiSearch,BiHeart,BiMenu } from 'react-icons/bi';
 import {AiOutlineShoppingCart } from 'react-icons/ai';
 import './Navbar.css'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -14,8 +15,8 @@ const Navbar = () => {
                 <div className='flex items-center space-x-12'>
                     <div className=''>
                         <ul className='flex items-center space-x-6 nav-link text-lg'>
-                            <li><a href="">Home</a></li>
-                            <li><a href="">All jewelry</a></li>
+                            <li><Link to='/'><a href="">Home</a></Link></li>
+                            <li><Link to='/allproducts'><a href="">All jewelry</a></Link></li>
                             <li><a href="">Blogs</a></li>
                             <li><a href="">About us</a></li>
                             <li><a href="">Contact us</a></li>
