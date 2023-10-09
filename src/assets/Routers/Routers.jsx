@@ -7,6 +7,7 @@ import AllProducts from "../../Pages/AllProducts/AllProducts";
 import AllBlogs from "../../Pages/AllProducts/BlogsPage/AllBlogs/AllBlogs";
 import AddProducts from "../../Pages/AddProducts/AddProducts";
 import LogIn from "../../Pages/RegistenPage/LogIn/LogIn";
+import SingUp from "../../Pages/RegistenPage/SingUp/SingUp";
   
  export const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ import LogIn from "../../Pages/RegistenPage/LogIn/LogIn";
         {
             path: "/login",
             element:<LogIn></LogIn>
+        },
+        {
+            path: "/singup",
+            element:<SingUp></SingUp>
         }
       ]
     },

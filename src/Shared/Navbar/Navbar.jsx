@@ -23,10 +23,10 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <div className='flex items-center space-x-4 text-xl'>
-                         <p><BiSearch></BiSearch></p>
-                         <p><BiHeart></BiHeart></p>
-                         <p><AiOutlineShoppingCart></AiOutlineShoppingCart></p>
+                    <div className='flex items-center space-x-4 text-lg cursor-pointer'>
+                         <p className='text-xl'><BiSearch></BiSearch></p>
+                         <p className='text-xl'><BiHeart></BiHeart></p>
+                         <p className='text-xl'><AiOutlineShoppingCart></AiOutlineShoppingCart></p>
                          <Link to='/login'><p>Login</p></Link>
                     </div>
                 </div>
