@@ -49,14 +49,20 @@ const LogIn = () => {
                             <input
                             {...register("email", { required: true })}
                              className='w-full border outline-none py-2 px-4' type="text" placeholder='Enter Your Email' />
+                              {errors.email && <span className='text-[red] py-1'>place enter email</span>}
                         </div>
 
                         <div className='flex flex-col space-y-2 w-full'>
                             <label>Your Password</label>
                             <div className='flex items-center justify-between relative'>
-                                <input
+                               <div className='w-full'>
+                               <input
                                 {...register("password", { required: true })}
                                  className='w-full border outline-none py-2 px-4' type={show ? "text" : "password"} placeholder='Enter Your Password' />
+                                 {errors.password && <span className='text-[red] py-1'>enter password</span>}
+                               </div>
+                                
+
                                 <p onClick={handleShow} className='right-6 absolute text-xl cursor-pointer'>{show ? <AiOutlineEyeInvisible></AiOutlineEyeInvisible>: <AiOutlineEye></AiOutlineEye>}</p>
                             </div>
                         </div>
