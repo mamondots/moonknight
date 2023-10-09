@@ -1,13 +1,36 @@
 
 import Lottie from 'lottie-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import singUpAnimation from '../../signupAnimation.json'
 import { useForm } from 'react-hook-form';
+import { useContext } from 'react';
+import { AuthContext } from '../../../Providers/AuthProviders';
+import { FaGooglePlusG } from 'react-icons/fa';
+import { BiLogoFacebook } from 'react-icons/bi';
 
 const SingUp = () => {
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/'
+    const {createUser,signInWithGoogle,updateUserProfile} = useContext(AuthContext)
     const {register, handleSubmit, reset, formState: { errors }} = useForm();
     const onSubmit = (data) =>{
-        console.log(data)
+        createUser(data.email, data.password)
+        .then(result =>{
+            const startUser = result.user
+            console.log(startUser)
+            updateUserProfile(data.name, data.photoURL)
+            navigate(from, {replace:true})
+        })
+    }
+
+    const handleGoogle = () =>{
+        signInWithGoogle()
+        .then(result =>{
+            const googleUser = result.user
+            console.log(googleUser)
+            
+        })
     }
     return (
         <div className='lg:px-20 md:px-12 px-12 py-6'>
@@ -74,13 +97,21 @@ const SingUp = () => {
                         <div className='flex flex-col space-y-1 w-full'>
                             <label>Your Photo</label>
                             <input
-                            {...register("photo", { required: true })}
+                            {...register("photoURL", { required: true })}
                              className='w-full border outline-none py-2 px-4' type="url" placeholder='Enter Photo URL ' />
-                              {errors.photo && <span className='text-[red] py-1'>place enter photo url</span>}
+                              {errors.photoURL && <span className='text-[red] py-1'>place enter photo url</span>}
                         </div>
 
                         <div className='w-full pt-4'>
                             <input className='w-full border py-2 text-center bg-[#D54800] text-white hover:bg-[red] duration-300 cursor-pointer' type="submit" value="Sing Up" />
+                        </div>
+
+                        <div className='py-2'>
+                            <h2 className='text-center'>Log In With</h2>
+                            <div className='flex items-center justify-center py-2 space-x-2 cursor-pointer'>
+                                <p onClick={handleGoogle} className='py-2 px-2 border bg-[#D54800] text-white rounded-full text-2xl hover:bg-[red]'><FaGooglePlusG></FaGooglePlusG></p>
+                                <p className='py-2 px-2 border bg-[#D54800] text-white rounded-full text-2xl hover:bg-[red]'><BiLogoFacebook></BiLogoFacebook></p>
+                            </div>
                         </div>
 
                     </form>
