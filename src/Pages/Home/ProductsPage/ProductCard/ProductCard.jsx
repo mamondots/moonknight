@@ -1,15 +1,18 @@
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css'
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import './ProductCard.css'
 
 import { BiSearch } from 'react-icons/bi';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { AiOutlineClose } from 'react-icons/ai';
+import { AuthContext } from '../../../../Providers/AuthProviders';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
-    const { title, price, rating, image } = product
+    const { title, price, rating, image, _id } = product
 
     const [popupContent, setPopupContent] = useState([])
     const [popupTogle, setPopupTogle] = useState(false)
@@ -19,6 +22,48 @@ const ProductCard = ({ product }) => {
     }
 
     const [count,setCount] = useState(1)
+
+    const {user} = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    const handleAddToCart = (product) =>{
+        if (user && user.email) {
+            const seletedClass = {seletedId:_id, title, image, rating, price, email: user.email }
+            fetch('https://summer-comp-server-site.vercel.app/seleted', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(seletedClass)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.insertedId) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'products added successfully',
+                            icon: 'success',
+                            confirmButtonText: 'Ok'
+                        })
+                    }
+                })
+        }
+        else {
+            Swal.fire({
+                title: 'Please First Login!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login Now'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login')
+                }
+            })
+        }
+    }
     return (
         <div>
             <div className='border relative card'>
@@ -30,7 +75,7 @@ const ProductCard = ({ product }) => {
                             <p className='px-2 py-2 bg-[#D54800] text-white text-xl rounded quick-icon'><BiSearch></BiSearch></p>
                         </div>
 
-                        <div className='flex items-center space-x-2 view-card'>
+                        <div onClick={() =>handleAddToCart(product)} className='flex items-center space-x-2 view-card'>
                             <p className='px-2 py-2 bg-[#D54800] text-white text-sm rounded quick-text'>Add to Cart</p>
                             <p className='px-2 py-2 bg-[#D54800] text-white text-xl rounded quick-icon'><AiOutlineShoppingCart></AiOutlineShoppingCart></p>
                         </div>
