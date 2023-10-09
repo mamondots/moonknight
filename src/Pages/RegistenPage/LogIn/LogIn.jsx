@@ -1,13 +1,14 @@
 
 import Lottie from 'lottie-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import animation from '../../loginAnimation.json'
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { FaGooglePlusG } from 'react-icons/fa';
 import { BiLogoFacebook } from 'react-icons/bi';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../../Providers/AuthProviders';
 
 
 
@@ -19,9 +20,29 @@ const LogIn = () => {
         setShow(!show)
     }
 
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/'
+
+    const {signIn,signInWithGoogle} = useContext(AuthContext)
+
     const {register, handleSubmit, reset, formState: { errors }} = useForm();
     const onSubmit = (data) =>{
-        console.log(data)
+        signIn(data.email, data.password)
+        .then(result =>{
+            const user = result.user
+            console.log(user)
+            navigate(from, {replace:true})
+        })
+    }
+
+    const handleGoogle = () =>{
+        signInWithGoogle()
+        .then(result =>{
+            const googleUser = result.user
+            console.log(googleUser)
+            navigate(from, {replace:true})
+        })
     }
     return (
         <div className='lg:px-20 md:px-12 px-12 py-6'>
@@ -79,7 +100,7 @@ const LogIn = () => {
                         <div className='py-2'>
                             <h2 className='text-center'>Log In With</h2>
                             <div className='flex items-center justify-center py-2 space-x-2 cursor-pointer'>
-                                <p className='py-2 px-2 border bg-[#D54800] text-white rounded-full text-2xl hover:bg-[red]'><FaGooglePlusG></FaGooglePlusG></p>
+                                <p onClick={handleGoogle} className='py-2 px-2 border bg-[#D54800] text-white rounded-full text-2xl hover:bg-[red]'><FaGooglePlusG></FaGooglePlusG></p>
                                 <p className='py-2 px-2 border bg-[#D54800] text-white rounded-full text-2xl hover:bg-[red]'><BiLogoFacebook></BiLogoFacebook></p>
                             </div>
                         </div>
