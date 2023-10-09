@@ -8,11 +8,13 @@ import AllBlogs from "../../Pages/AllProducts/BlogsPage/AllBlogs/AllBlogs";
 import AddProducts from "../../Pages/AddProducts/AddProducts";
 import LogIn from "../../Pages/RegistenPage/LogIn/LogIn";
 import SingUp from "../../Pages/RegistenPage/SingUp/SingUp";
+import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
   
  export const router = createBrowserRouter([
     {
       path: "/",
       element:<Main></Main>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path: "/",

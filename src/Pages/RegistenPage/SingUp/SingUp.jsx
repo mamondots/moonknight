@@ -29,7 +29,7 @@ const SingUp = () => {
         .then(result =>{
             const googleUser = result.user
             console.log(googleUser)
-            
+            navigate(from, {replace:true})
         })
     }
     return (
