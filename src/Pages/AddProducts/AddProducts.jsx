@@ -1,11 +1,31 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const AddProducts = () => {
     const {register, handleSubmit, reset, formState: { errors }} = useForm();
     const onSubmit = (data) =>{
-        console.log(data)
+     fetch('http://localhost:5000/products',{
+          method:'POST',
+          headers:{
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(data =>{
+          console.log(data)
+          if (data.insertedId){
+              reset()
+              Swal.fire({
+                  title: 'success!',
+                  text: 'Your Items Added In Your Page',
+                  icon: 'success',
+                  confirmButtonText: 'Finised'
+              })
+          }
+      })
     }
     return (
         <div className='lg:px-20 md:px-12 px-12 py-6'>
@@ -23,15 +43,19 @@ const AddProducts = () => {
                            <input
                            {...register("title", { required: true })}
                             className='border px-4 py-2 w-full outline-none' type="text" placeholder='Enter Title' />
+                            {errors.title && <span className='text-[red] py-1'>this filed can't be emty</span>}
                       </div>
 
                       <div className='w-full lg:flex lg:space-x-2 lg:space-y-0 space-y-2 items-center'>
                            <input
                            {...register("price", { required: true })}
                             className='border px-4 py-2 w-full outline-none' type="text" placeholder='Enter Price' />
+                            {errors.price && <span className='text-[red] py-1'>price</span>}
+
                            <input
                            {...register("rating", { required: true })}
                             className='border px-4 py-2 w-full outline-none' type="text" placeholder='Enter Rating 1-5' />
+                            {errors.rating && <span className='text-[red] py-1'>rating</span>}
                       </div>
 
                       <div className='w-full lg:flex lg:space-x-2 lg:space-y-0 space-y-2 items-center'>
@@ -43,6 +67,7 @@ const AddProducts = () => {
                              <option value="best">best</option>
                              <option value="featured">featured</option>
                            </select>
+                           {errors.category && <span className='text-[red] py-1'>this filed can't be emty</span>}
 
                            <select
                            {...register("product_category", { required: true })}
@@ -82,15 +107,18 @@ const AddProducts = () => {
                            <input
                            {...register("sku", { required: true })} 
                            className='border px-4 py-2 w-full outline-none' type="text" placeholder='Products Serial: PRO-1245' />
+                           {errors.sku && <span className='text-[red] py-1'>serial</span>}
                            <input
                            {...register("image", { required: true })}
                             className='border px-4 py-2 w-full outline-none' type="url" placeholder='Enter Image URL' />
+                            {errors.image && <span className='text-[red] py-1'>url</span>}
                       </div>
 
                       <div className='w-full flex items-center space-x-2'>
                            <textarea
                            {...register("description", { required: true })}
                             className='border px-4 py-2 w-full outline-none' placeholder='Enter Product Description' cols="30" rows="4"></textarea>
+                            {errors.description && <span className='text-[red] py-1'>Enter description</span>}
                       </div>
 
                       <div className='w-full flex items-center cursor-wait'>
