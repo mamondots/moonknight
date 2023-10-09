@@ -26,10 +26,10 @@ const ProductCard = ({ product }) => {
     const {user} = useContext(AuthContext)
     const navigate = useNavigate()
 
-    const handleAddToCart = (product) =>{
+    const handleAddToCart = product =>{
         if (user && user.email) {
             const seletedClass = {seletedId:_id, title, image, rating, price, email: user.email }
-            fetch('https://summer-comp-server-site.vercel.app/seleted', {
+            fetch('http://localhost:5000/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
