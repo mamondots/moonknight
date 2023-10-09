@@ -54,15 +54,16 @@ const SingUp = () => {
                             <div className='flex flex-col space-y-1 w-full'>
                                 <label>Your Password</label>
                                 <input
-                                {...register("password", { required: true })}
+                                {...register("password", { required: true, minLength:6,maxLength:20 })}
                                  className='w-full border outline-none py-2 px-4' type="password" placeholder='Enter Your Password' />
                                  {errors.password && <span className='text-[red] py-1'>place enter password</span>}
+                                 
                             </div>
 
                             <div className='flex flex-col space-y-1 w-full'>
                                 <label>Confirm Password</label>
                                 <input
-                                {...register("confirmPassword", { required: true })}
+                                {...register("confirmPassword", { required: true,minLength:6,maxLength:20 })}
                                  className='w-full border outline-none py-2 px-4' type="password" placeholder='Enter Confirm Password' />
                                  {errors.confirmPassword && <span className='text-[red] py-1'>place enter Confirm Password</span>}
                             </div>
