@@ -10,6 +10,12 @@ import LogIn from "../../Pages/RegistenPage/LogIn/LogIn";
 import SingUp from "../../Pages/RegistenPage/SingUp/SingUp";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
 import MyProducts from "../../Pages/MyProducts/MyProducts";
+import Dasboard from "../../Dasbord/Dasboard";
+import OwerHome from "../../Dasbord/DashboardPages/OwerHome/OwerHome";
+import SetProduct from "../../Dasbord/DashboardPages/SetProduct/SetProduct";
+import ManageProducts from "../../Dasbord/DashboardPages/ManageProducts/ManageProducts";
+import ManageUser from "../../Dasbord/DashboardPages/ManageUser/ManageUser";
+import ClientDasboard from "../../Dasbord/ClientDasboard/ClientDasboard";
 
 export const router = createBrowserRouter([
   {
@@ -29,7 +35,7 @@ export const router = createBrowserRouter([
         path: "/myproducts",
         element: <MyProducts></MyProducts>
       },
-        {
+      {
         path: "/allblogs",
         element: <AllBlogs></AllBlogs>
       },
@@ -48,4 +54,32 @@ export const router = createBrowserRouter([
 
     ]
   },
+
+  {
+    path: '/dasboard',
+    element: <Dasboard></Dasboard>,
+    children: [
+      {
+        path: '/dasboard',
+        element: <OwerHome></OwerHome>
+      },
+      {
+        path: '/dasboard/setproduct',
+        element: <SetProduct></SetProduct>
+      },
+      {
+        path: '/dasboard/manageproducts',
+        element: <ManageProducts></ManageProducts>
+      },
+      {
+        path: '/dasboard/manageuser',
+        element: <ManageUser></ManageUser>
+      }
+    ]
+  },
+
+  {
+     path:'/clientboard',
+     element:<ClientDasboard></ClientDasboard>
+  }
 ]);

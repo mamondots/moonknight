@@ -61,7 +61,7 @@ const Navbar = () => {
 
                                                 <div className='bg-[#D54800] text-white hover:bg-[#061E43] duration-300 cursor-pointer px-4 py-2 absolute right-10 z-10 mt-2 board rounded'>
                                                     <h2 onClick={handleLogout} className='py-2 hover:text-[#ff00009d] duration-300'>Logout</h2>
-                                                    <Link to='/dasboard'>
+                                                    <Link to='/clientboard'>
                                                         <h2 className='pb-1 hover:text-[#ff00009d] duration-300'>Client Dashboard</h2>
                                                     </Link>
 
