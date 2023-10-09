@@ -6,6 +6,7 @@ import Home from "../../Pages/Home/Home/Home";
 import AllProducts from "../../Pages/AllProducts/AllProducts";
 import AllBlogs from "../../Pages/AllProducts/BlogsPage/AllBlogs/AllBlogs";
 import AddProducts from "../../Pages/AddProducts/AddProducts";
+import LogIn from "../../Pages/RegistenPage/LogIn/LogIn";
   
  export const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ import AddProducts from "../../Pages/AddProducts/AddProducts";
         {
             path: "/addproducts",
             element:<AddProducts></AddProducts>
+        },
+        {
+            path: "/login",
+            element:<LogIn></LogIn>
         }
       ]
     },

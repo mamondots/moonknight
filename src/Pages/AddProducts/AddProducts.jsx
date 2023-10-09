@@ -15,7 +15,7 @@ const AddProducts = () => {
                <p>Add Products</p>
            </div>
            
-           <div className='px-12 bg-white py-8 mt-12 border rounded'>
+           <div className='lg:px-12 px-6 bg-white py-8 mt-12 border rounded'>
            <h2 className="text-center text-2xl font-medium">Add Single Product</h2>
              <div className='py-4 mt-4'>
                   <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
@@ -25,7 +25,7 @@ const AddProducts = () => {
                             className='border px-4 py-2 w-full outline-none' type="text" placeholder='Enter Title' />
                       </div>
 
-                      <div className='w-full flex items-center space-x-2'>
+                      <div className='w-full lg:flex lg:space-x-2 lg:space-y-0 space-y-2 items-center'>
                            <input
                            {...register("price", { required: true })}
                             className='border px-4 py-2 w-full outline-none' type="text" placeholder='Enter Price' />
@@ -34,7 +34,7 @@ const AddProducts = () => {
                             className='border px-4 py-2 w-full outline-none' type="text" placeholder='Enter Rating 1-5' />
                       </div>
 
-                      <div className='w-full flex items-center space-x-2'>
+                      <div className='w-full lg:flex lg:space-x-2 lg:space-y-0 space-y-2 items-center'>
                            <select 
                            {...register("category", { required: true })}
                            className='border px-4 py-2 w-full outline-none text-[#9CA3AF]'>
@@ -57,7 +57,7 @@ const AddProducts = () => {
 
                       </div>
 
-                      <div className='w-full flex items-center space-x-2'>
+                      <div className='w-full lg:flex lg:space-x-2 lg:space-y-0 space-y-2 items-center'>
                            <select
                            {...register("trending", { required: true })}
                             className='border px-4 py-2 w-full outline-none text-[#9CA3AF]'>
@@ -78,7 +78,7 @@ const AddProducts = () => {
 
                       </div>
 
-                      <div className='w-full flex items-center space-x-2'>
+                      <div className='w-full lg:flex lg:space-x-2 lg:space-y-0 space-y-2 items-center'>
                            <input
                            {...register("sku", { required: true })} 
                            className='border px-4 py-2 w-full outline-none' type="text" placeholder='Products Serial: PRO-1245' />

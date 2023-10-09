@@ -27,7 +27,7 @@ const Navbar = () => {
                          <p><BiSearch></BiSearch></p>
                          <p><BiHeart></BiHeart></p>
                          <p><AiOutlineShoppingCart></AiOutlineShoppingCart></p>
-                         <p>Login</p>
+                         <Link to='/login'><p>Login</p></Link>
                     </div>
                 </div>
                 </div>
